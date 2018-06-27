@@ -1,47 +1,12 @@
 'use strict'
 import {createStore} from 'redux'
 
-//spte3 define reducers
-const reducer = (state={books:[]}, action) => {
-
-  switch(action.type){
-    case "POST_BOOK":
-    // let books = state.books.concat(action.payload)
-    // return {books};
-    return {books: [...state.books,...action.payload]}
-    break;
-
-    case "DELETE_BOOK":
-    const currentBookToDelete = [...state.books]
-
-    const indexToDelte = currentBookToDelete.findIndex((book) =>{
-      return book.id === action.payload.id
-    } )
-    return {books: [...currentBookToDelete.slice(0,indexToDelte),...currentBookToDelete.slice(indexToDelte + 1)]}
-    break;
-
-    case "UPDATE_BOOK":
-      const currentBookToUpdate = [...state.books]
-      const indexToUpdate = currentBookToUpdate.findIndex((book) => {
-        return book.id === action.payload.id;
-      })
-
-      const newBookToUpdate = {
-        ...currentBookToUpdate[indexToUpdate],
-        title: action.payload.title
-      }
-
-      console.log("what is it newBookToUpdate", newBookToUpdate);
-
-      return {books: [...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate, ...currentBookToUpdate.slice(indexToUpdate + 1)]}
-      break;
-  }
-  return state
-}
+// import combine reducers
+import reducers from './reducers/index'
 
 
 //Step 1 create the store
-const store = createStore(reducer);
+const store = createStore(reducers);
 
 store.subscribe(() => {
   console.log('current state is :' , store.getState())
