@@ -37,3 +37,23 @@ console.log( text );
 [slice( 2, 4 )」と記述したら、切り抜く文字は2文字目と３文字目だけ]
 
 ```
+
+## Redux Middleware
+- Reduxのflow
+1. Store
+2. Provider
+3. Actions
+4. Middleware
+5. Reducers
+
+- `yarn add redux-logger` (npmでもok)
+```js
+import logger from 'redux-logger'
+//applyMiddlewareを追加
+import {createStore,applyMiddleware} from 'redux'
+
+//midllewareを使えるようにしてstoreに紐づける
+const middleware = applyMiddleware(logger)
+const store = createStore(reducers, middleware);
+```
+- こうするとログに出てくるのでみやすい
