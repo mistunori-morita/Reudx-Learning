@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {render} from 'react-dom'
-
+import {Provider} from 'react-redux'
 
 import {createStore,applyMiddleware} from 'redux'
 import logger from 'redux-logger'
@@ -19,11 +19,12 @@ const store = createStore(reducers, middleware);
 
 import BooksList from './components/pages/booksList'
 
-render(<BooksList />, document.getElementById('app'))
+render(
+  <Provider store={store}>
+   <BooksList />
+  </Provider>, document.getElementById('app'));
 
-// store.subscribe(() => {
-//   console.log('current state is :' , store.getState())
-// })
+
 store.dispatch(postBooks(
   [{
       id: 1,
