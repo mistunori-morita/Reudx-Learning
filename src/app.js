@@ -25,21 +25,21 @@ render(
   </Provider>, document.getElementById('app'));
 
 
-store.dispatch(postBooks(
-  [{
-      id: 1,
-      title: 'this is the book title',
-      description: 'this is the book description',
-      price: 33.33
-    },
-    {
-      id: 2,
-      title: 'this is the second book title',
-      description: 'this is the book description',
-      price: 50
-    },
-  ]
-))
+// store.dispatch(postBooks(
+//   // [{
+//   //     id: 1,
+//   //     title: 'this is the book title',
+//   //     description: 'this is the book description',
+//   //     price: 33.33
+//   //   },
+//   //   {
+//   //     id: 2,
+//   //     title: 'this is the second book title',
+//   //     description: 'this is the book description',
+//   //     price: 50
+//   //   },
+//   // ]
+// ))
 
 
 // //DELETE a second action
