@@ -42,20 +42,20 @@ store.dispatch(postBooks(
 ))
 
 
-//DELETE a second action
-store.dispatch(deleteBooks(
-  {id: 1}
-))
+// //DELETE a second action
+// store.dispatch(deleteBooks(
+//   {id: 1}
+// ))
 
-//Update a second action
-store.dispatch(updateBooks(
-{
-  id: 2,
-  title: 'Learn React'
-}
-))
+// //Update a second action
+// store.dispatch(updateBooks(
+// {
+//   id: 2,
+//   title: 'Learn React'
+// }
+// ))
 
 
-// Add to cart
+// // Add to cart
 
-store.dispatch(addToCart([{id: 1}]))
+// store.dispatch(addToCart([{id: 1}]))
