@@ -18,7 +18,7 @@ class BooksList extends React.Component{
           <h2>{booksArr.title}</h2>
           <h2>{booksArr.description}</h2>
           <h2>{booksArr.price}</h2>
-          <Button bsStyle="primary">Primary</Button>
+          <Button bsStyle="primary">Buy Now</Button>
         </div>
       )
     })
