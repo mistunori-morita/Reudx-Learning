@@ -150,4 +150,5 @@ package.jsonに記述をしてwebpack.config.jsを呼び出す
 }
 
 ```
-- これでpacage.jsonに記述したので`npm(yarn) run build`で起動できる 
+- これでpacage.jsonに記述したので`npm(yarn) run build`で起動できる
+- 今回のやつは`node server.js`も起動しないといけない（この辺webpackで修正のちほどかけよう）
