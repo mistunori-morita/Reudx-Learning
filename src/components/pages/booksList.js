@@ -8,6 +8,7 @@ import BookItem from './bookItem'
 import BooksForm from './BooksForm'
 import Cart from './cart'
 
+
 class BooksList extends React.Component{
   componentDidMount(){
     //Dispatch an action
@@ -17,9 +18,9 @@ class BooksList extends React.Component{
   render(){
     const booksList = this.props.books.map((booksArr) =>{
       return (
-       <Col xs={12} sm={6} md={4} key={booksArr.id}>
+       <Col xs={12} sm={6} md={4} key={booksArr._id}>
         <BookItem
-          id={booksArr.id} 
+          _id={booksArr._id}
           title={booksArr.title}
           description={booksArr.description}
           price={booksArr.price} />

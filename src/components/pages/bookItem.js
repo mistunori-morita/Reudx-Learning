@@ -9,7 +9,7 @@ class BookItem extends React.Component {
 
   handleCart = () => {
     const book = [...this.props.cart, {
-      id: this.props.id,
+      _id: this.props._id,
       title: this.props.title,
       description: this.props.description,
       price: this.props.price
@@ -23,7 +23,7 @@ class BookItem extends React.Component {
           <Col xs={12}>
             <h6>{this.props.title}</h6>
             <p>{this.props.description}</p>
-            <h6>usd. {this.props.price}</h6> 
+            <h6>usd. {this.props.price}</h6>
             <Button  onClick={this.handleCart.bind(this)} bsStyle="primary">Buy Now</Button>
           </Col>
         </Row>
