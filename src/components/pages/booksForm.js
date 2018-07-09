@@ -56,7 +56,7 @@ class BooksForm  extends React.Component {
           </FormGroup>
           <Button onClick={this.handleSubmit.bind(this)} bsStyle="primary">Save Books</Button>
         </Panel>
-        <Panel style={{marginTop: '25px'}}>
+        <Panel style={{marginTop: '25px', padding: '15px'}}>
           <FormGroup>
             <ControlLabel>Select a book</ControlLabel>
             <FormControl ref="delete" componentClass="select" placeholder="select">

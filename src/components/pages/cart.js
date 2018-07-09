@@ -61,7 +61,7 @@ class Cart extends React.Component{
   renderCart(){
     const cartItemList = this.props.cart.map((cartArr)=>{
       return(
-        <Panel key={cartArr._id}>
+        <Panel key={cartArr._id} style={{padding: '15px'}}>
           <Row>
             <Col xs={12} sm={4}>
               <h6>{cartArr.title}</h6><span></span>
@@ -85,7 +85,8 @@ class Cart extends React.Component{
       )
     }, this)
     return(
-      <Panel header="Cart" byStyle="primary">
+      <Well>
+      <Panel header="Cart" byStyle="primary" style={{padding: '15px'}}>
         {cartItemList}
         <Row>
           <Col xs={12}>
@@ -110,6 +111,7 @@ class Cart extends React.Component{
             </Modal.Footer>
           </Modal>
       </Panel>
+      </Well>
     )
   }
 }

@@ -6,6 +6,8 @@ import {Provider} from 'react-redux'
 
 import {createStore,applyMiddleware} from 'redux'
 import logger from 'redux-logger'
+import Menu from './components/menu'
+import Footer from './components/footer'
 
 // import combine reducers
 import reducers from './reducers/index'
@@ -21,7 +23,11 @@ import BooksList from './components/pages/booksList'
 
 render(
   <Provider store={store}>
-   <BooksList />
+    <div>
+      <Menu />
+      <BooksList />
+      <Footer />
+    </div>
   </Provider>, document.getElementById('app'));
 
 
