@@ -32,7 +32,7 @@ class BooksForm  extends React.Component {
     })
     return (
       <Well>
-        <Panel style={{padding: '15px'}}>
+        <Panel>
           <FormGroup controlId="title">
             <ControlLabel>Title</ControlLabel>
             <FormControl

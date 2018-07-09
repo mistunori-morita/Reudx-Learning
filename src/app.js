@@ -3,6 +3,8 @@
 import React from 'react';
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+
 
 import {createStore,applyMiddleware} from 'redux'
 import logger from 'redux-logger'
@@ -20,48 +22,19 @@ const middleware = applyMiddleware(logger)
 const store = createStore(reducers, middleware);
 
 import BooksList from './components/pages/booksList'
+import Cart from './components/pages/cart'
+import BooksForm './components/pages/booksForm'
+import Main from './main'
+
+const routes = (
+  <Router history={browserHistory}>
+    <Route path="/" component={Main}>
+      <IndexRoute component={BooksList}/>
+      <Route path="/admin" component={BooksForm}/>
+      <Route path="/cart" component={Cart}/>
+    </Route>
+  </Router>
+)
 
 render(
-  <Provider store={store}>
-    <div>
-      <Menu />
-      <BooksList />
-      <Footer />
-    </div>
-  </Provider>, document.getElementById('app'));
-
-
-// store.dispatch(postBooks(
-//   // [{
-//   //     id: 1,
-//   //     title: 'this is the book title',
-//   //     description: 'this is the book description',
-//   //     price: 33.33
-//   //   },
-//   //   {
-//   //     id: 2,
-//   //     title: 'this is the second book title',
-//   //     description: 'this is the book description',
-//   //     price: 50
-//   //   },
-//   // ]
-// ))
-
-
-// //DELETE a second action
-// store.dispatch(deleteBooks(
-//   {id: 1}
-// ))
-
-// //Update a second action
-// store.dispatch(updateBooks(
-// {
-//   id: 2,
-//   title: 'Learn React'
-// }
-// ))
-
-
-// // Add to cart
-
-// store.dispatch(addToCart([{id: 1}]))
+  routes, document.getElementById('app'));
