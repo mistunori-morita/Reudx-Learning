@@ -4,12 +4,12 @@ import { Well, Panel, FormControl, FormGroup, ControlLabel, Button} from 'react-
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {findDOMNode} from 'react-dom';
-import {postBooks} from '../../actions/booksActions'
+import {postBooks, deleteBooks} from '../../actions/booksActions'
 
 
 class BooksForm  extends React.Component {
 
-  handleSubmit =() =>{
+  handleSubmit = () =>{
     const book=[{
       title: findDOMNode(this.refs.title).value,
       description: findDOMNode(this.refs.description).value,
@@ -18,7 +18,18 @@ class BooksForm  extends React.Component {
     this.props.postBooks(book)
   }
 
+
+  onDelete = () => {
+    let booksId = findDOMNode(this.refs.delete).value;
+    this.props.deleteBooks(booksId)
+  }
+
   render(){
+    const booksList = this.props.books.map((booksArr) =>{
+      return(
+        <option key={booksArr._id}>{booksArr._id}</option>
+      )
+    })
     return (
       <Well>
         <Panel style={{padding: '15px'}}>
@@ -45,13 +56,31 @@ class BooksForm  extends React.Component {
           </FormGroup>
           <Button onClick={this.handleSubmit.bind(this)} bsStyle="primary">Save Books</Button>
         </Panel>
+        <Panel style={{marginTop: '25px'}}>
+          <FormGroup>
+            <ControlLabel>Select a book</ControlLabel>
+            <FormControl ref="delete" componentClass="select" placeholder="select">
+              <option value="select">select</option>
+              {booksList}
+            </FormControl>
+          </FormGroup>
+          <Button onClick={this.onDelete.bind(this)} bsStyle="danger">Delete book</Button>
+        </Panel>
       </Well>
     )
   }
 }
 
+function mapStateToProps(state){
+  return {
+    books: state.books.books
+  }
+}
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({postBooks}, dispatch)
+  return bindActionCreators({
+    postBooks,
+    deleteBooks
+  }, dispatch)
 }
-export default connect(null, mapDispatchToProps)(BooksForm);
+export default connect(mapStateToProps, mapDispatchToProps)(BooksForm);
